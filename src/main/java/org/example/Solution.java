@@ -3,7 +3,7 @@ package org.example;
 public class Solution {
 
     public static void main(String[] args) {
-        System.out.println(pigLatinize("pig latin"));
+        System.out.println(pigLatinize("Pig Latin"));
     }
 
     public static String pigLatinize(String phrase){
@@ -12,14 +12,16 @@ public class Solution {
         for (String word: wordArray) {
             String pigLatinizedWord = "";
             int i = 1;
-            if(word.charAt(0)=='a' || word.charAt(0)=='e'|| word.charAt(0)=='i'|| word.charAt(0)=='o'|| word.charAt(0)=='u'){
+            Character firstCharacter = Character.toLowerCase(word.charAt(0));
+            if(firstCharacter =='a' || firstCharacter=='e'|| firstCharacter=='i'|| firstCharacter=='o'|| firstCharacter=='u'){
                 pigLatinizedWord += word + "way";
             }else{
                 String consonantCluster = String.valueOf(word.charAt(0));
                 Boolean vowelFound = false;
 
                 while(!vowelFound){
-                    if(word.charAt(i)=='a' || word.charAt(i)=='e'|| word.charAt(i)=='i'|| word.charAt(i)=='o'|| word.charAt(i)=='u'){
+                    Character characterAtPosition = Character.toLowerCase(word.charAt(i));
+                    if(characterAtPosition=='a' || characterAtPosition=='e'|| characterAtPosition=='i'|| characterAtPosition=='o'|| characterAtPosition=='u'){
                         vowelFound = true;
                     }else{
                         consonantCluster += String.valueOf(word.charAt(i));
